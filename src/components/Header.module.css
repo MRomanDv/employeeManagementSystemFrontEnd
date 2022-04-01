@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Alata&family=Amaranth:wght@700&family=Bungee&family=El+Messiri:wght@700&family=Heebo:wght@300&family=Jura:wght@300;700&family=Lilita+One&family=Monoton&family=Nanum+Gothic+Coding&family=Nanum+Myeongjo&family=Playfair+Display+SC&family=Staatliches&family=Syncopate:wght@700&family=Teko:wght@300&family=Ubuntu&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.background {
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(9deg, rgba(60,60,60,0.9934348739495799) 0%, rgba(0,0,0,1) 47%, rgba(254,35,35,1) 48%, rgba(255,208,208,1) 100%);;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.title h1 {
+    font-size: 6vmin;
+    color: rgb(238, 228, 228);
+    font-family: 'Bungee', cursive;
+}

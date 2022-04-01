@@ -1,38 +1,121 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Alata&family=Amaranth:wght@700&family=Bungee&family=El+Messiri:wght@700&family=Heebo:wght@300&family=Jura:wght@300;700&family=Lilita+One&family=Monoton&family=Nanum+Gothic+Coding&family=Nanum+Myeongjo&family=Playfair+Display+SC&family=Staatliches&family=Syncopate:wght@700&family=Teko:wght@300&family=Ubuntu&display=swap');
+
+.info-container {
+  width: 100vw;
+  height: 100vh; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.information {
+  background: radial-gradient(circle, rgba(60,60,60,0.9934348739495799) 0%, rgba(0,0,0,1) 47%, rgba(254,35,35,1) 48%, rgb(230, 75, 75) 100%);;
+  padding: 50px;
+  border-radius: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.input-box {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin-bottom: 1.5rem;
+  width: 300px;
 }
 
-.App-link {
-  color: #61dafb;
+.input-box input,
+.input-box button {
+  width: 100%;
+  height: 100%;
+  padding: 10px 20px;
+  position: relative;
+  outline: none;
+  font-family: 'Bungee', cursive;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.input-box button {
+  cursor: pointer;
+  transition: 500ms ease;
+  border: none;
 }
+
+.input-box button:hover {
+  background: rgb(14, 2, 2);
+  color: #fff;
+}
+
+
+.input-box label {
+  padding-bottom: 1rem;
+  color: #fff;
+  font-family: 'Bungee', cursive;
+}
+
+.ShowEmployeessection {
+    width: 100vw;
+    background: rgba(254,35,35,1);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.btnContainer {
+    padding: 100px;
+}
+.btnContainer button {
+    padding: 20px 45px;
+    border-radius: 10px;
+    border: none;
+    color: #fff;
+    background: #000;
+    font-size: 1.5rem;
+    cursor: pointer; 
+    transition: 1s ease;
+    box-shadow: -2px 0px 0px 2px rgb(54, 48, 48);
+}
+
+.btnContainer button:hover {
+    background: linear-gradient(9deg, rgba(60,60,60,0.9934348739495799) 0%, rgba(0,0,0,1) 47%, rgba(254,35,35,1) 48%, rgba(255,208,208,1) 100%);
+}
+
+ul li {
+    color: #fff;
+    list-style: none;
+    padding-bottom: 1rem;
+}
+.employeesInfo {
+    width: 80%;
+    margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill , minmax(350px,1fr));
+    background: #000;
+    padding: 25px;
+    border-radius: 10px;
+    border:2px solid #fff;
+    font-family: 'Alata', sans-serif;
+}
+
+.update input {
+    padding: 0 1rem;
+}
+.update button {
+    padding:0 2rem;
+    cursor: pointer;
+    transition: 500ms ease;
+}
+.update button:hover {
+    color: #fff;
+    background: rgba(254,35,35,1);
+}
+.delete {
+  width: 150px;
+  color: #fff;
+  background: rgba(254,35,35,1);
+  cursor: pointer;
+  transition: 500ms ease;
+}
+.delete:hover {
+  background: rgb(170, 15, 15);
+}
+
+
