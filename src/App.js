@@ -16,7 +16,7 @@ function App() {
  const [newWage,setNewWage] = useState(0)
 
  const addEmployee= ()=> {
-   Axios.post('http://localhost:3001/create',{ 
+   Axios.post('https://employeemanagementsystembe.herokuapp.com/create',{ 
      name: name,
      age: age,
      country: country,
@@ -34,13 +34,13 @@ function App() {
  }
 
  const getEmployees = ()=>{
-   Axios.get('http://localhost:3001/employees').then((response)=> {
+   Axios.get('https://employeemanagementsystembe.herokuapp.com/employees').then((response)=> {
      setEmployeeList(response.data)
    })
  }
 
  const updateEmployeeWage = (id)=>{
-   Axios.put('http://localhost:3001/update', {
+   Axios.put('https://employeemanagementsystembe.herokuapp.com/update', {
      wage: newWage,
      id:id
    }).then(res => {
@@ -52,7 +52,7 @@ function App() {
  }
 
  const deleteEmployee = (id)=> {
-   Axios.delete(`http://localhost:3001/delete/${id}`)
+   Axios.delete(`https://employeemanagementsystembe.herokuapp.com/delete/${id}`)
    .then(res =>{
      setEmployeeList(employeeList.filter((val)=>{
        return val.id != id 
