@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Alata&family=Amaranth:wght@700&family=Bungee&family=El+Messiri:wght@700&family=Heebo:wght@300&family=Jura:wght@300;700&family=Lilita+One&family=Monoton&family=Nanum+Gothic+Coding&family=Nanum+Myeongjo&family=Playfair+Display+SC&family=Staatliches&family=Syncopate:wght@700&family=Teko:wght@300&family=Ubuntu&display=swap');
 
 .info-container {
-  width: 100vw;
-  height: 100vh; 
+  width: 100vw; 
+  padding: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,6 +20,10 @@
   flex-direction: column;
   margin-bottom: 1.5rem;
   width: 300px;
+}
+
+.input-box input {
+  background: #fff;
 }
 
 .input-box input,
@@ -113,6 +117,7 @@ ul li {
 
 .update input {
     padding: 5px 1rem;
+    background: #fff; 
 }
 .update button {
     padding:0 2rem;
@@ -196,5 +201,8 @@ screen and (max-height:750px){
 }
 .update-item {
   width: 180px;
+}
+ul li {
+  font-size: 12px;
 }
 }
