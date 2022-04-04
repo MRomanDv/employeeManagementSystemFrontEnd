@@ -14,8 +14,19 @@
     justify-content: center;
     align-items: center;
 }
+.title {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
 .title h1 {
     font-size: 6vmin;
     color: rgb(238, 228, 228);
     font-family: 'Bungee', cursive;
+}
+
+@media screen and (max-width:900px) {
+    .title {
+        text-align: center;
+    }
 }

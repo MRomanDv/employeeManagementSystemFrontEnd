@@ -60,7 +60,10 @@
 }
 
 .btnContainer {
-    padding: 100px;
+    width: 90%;
+    padding: 100px 0;
+    display: flex;
+    justify-content: space-around;
 }
 .btnContainer button {
     padding: 20px 45px;
@@ -85,6 +88,7 @@ ul li {
 }
 .employeesInfo {
     width: 80%;
+    position: relative;
     margin-bottom: 20px;
     display: grid;
     grid-template-columns: repeat(auto-fill , minmax(350px,1fr));
@@ -93,15 +97,32 @@ ul li {
     border-radius: 10px;
     border:2px solid #fff;
     font-family: 'Alata', sans-serif;
+    overflow: hidden;
+}
+
+.update {
+  padding:2rem 0;
+}
+
+.update-item {
+  display: flex;
+  /*mediaquery*/
+  width: 400px;
+  margin-bottom: 1rem;
 }
 
 .update input {
-    padding: 0 1rem;
+    padding: 5px 1rem;
 }
 .update button {
     padding:0 2rem;
+    width: 200px;
     cursor: pointer;
+    color: #fff;
     transition: 500ms ease;
+    background: rgb(255, 69, 69);
+    border: none;
+    border-bottom: 1px solid #fff;
 }
 .update button:hover {
     color: #fff;
@@ -109,7 +130,12 @@ ul li {
 }
 .delete {
   width: 150px;
+  position: absolute;
   color: #fff;
+  bottom: 0;
+  right: 1rem;
+  padding: 5px;
+  margin: .5rem;
   background: rgba(254,35,35,1);
   cursor: pointer;
   transition: 500ms ease;
@@ -119,3 +145,56 @@ ul li {
 }
 
 
+@media screen and (max-width:700px) {
+  .btnContainer {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    padding-bottom: 40px;
+  }
+  .btnContainer button {
+    width: 200px;
+    padding: 15px 20px;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  .delete {
+    left: 1rem;
+  }
+}
+
+@media screen and (max-width:550px), 
+screen and (max-height:750px){
+  .update-item {
+    width: fit-content;
+    margin:10px 0;
+    flex-direction: column;
+  }
+  .update input {
+    width: 100%;
+  }
+  .update button {
+    width: 100%;
+    border-bottom: none;
+  }
+  .input-box {
+    width: 220px;
+  }
+  .information {
+    padding: 25px;
+  }
+}
+
+@media screen and (max-width:300px) {
+  .input-box {
+    width: 180px;
+  }
+.input-box input,
+.input-box button {
+  padding: 5px ;
+  
+}
+.update-item {
+  width: 180px;
+}
+}

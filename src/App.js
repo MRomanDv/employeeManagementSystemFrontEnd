@@ -13,7 +13,10 @@ function App() {
  const [wage,setWage] = useState(0)
 
  const [employeeList, setEmployeeList] = useState([])
+ //UPDATES
  const [newWage,setNewWage] = useState(0)
+ const [newAge, setNewAge] = useState(0)
+ const [newPosition,setNewPosition] = useState('')
 
  const addEmployee= ()=> {
    Axios.post('https://employeemanagementsystembe.herokuapp.com/create',{ 
@@ -38,6 +41,9 @@ function App() {
      setEmployeeList(response.data)
    })
  }
+ const hideEmployees = ()=>{
+   setEmployeeList([])
+ }
 
  const updateEmployeeWage = (id)=>{
    Axios.put('https://employeemanagementsystembe.herokuapp.com/update', {
@@ -50,6 +56,28 @@ function App() {
      }))
    })
  }
+ const updateEmployeeAge = (id)=>{
+  Axios.put('https://employeemanagementsystembe.herokuapp.com/updateAge', {
+    age:newAge,
+    id:id
+  }).then(res => {
+    console.log('updated')
+    setEmployeeList(employeeList.map((value)=>{
+      return value.id == id ? {name:value.name,age:newAge,country:value.country,position:value.position,wage:value.wage} : value 
+    }))
+  })
+}
+const updateEmployeePosition = (id)=>{
+  Axios.put('https://employeemanagementsystembe.herokuapp.com/updatePosition', {
+    position:newPosition,
+    id:id
+  }).then(res => {
+    console.log('updated')
+    setEmployeeList(employeeList.map((value)=>{
+      return value.id == id ? {name:value.name,age:value.age,country:value.country,position:newPosition,wage:value.wage} : value 
+    }))
+  })
+}
 
  const deleteEmployee = (id)=> {
    Axios.delete(`https://employeemanagementsystembe.herokuapp.com/delete/${id}`)
@@ -94,6 +122,7 @@ function App() {
       <div className='ShowEmployeessection'>
         <div className='btnContainer'>
         <button onClick={getEmployees}>ShowEmployees</button>
+        <button onClick={hideEmployees}>HideEmployees</button>
         </div>
         {employeeList.map((value,key)=>{
             return <ul className='employeesInfo'>
@@ -104,8 +133,21 @@ function App() {
             <li>{'Wage : ' + value.wage}</li>
 
             <div className='update'>
+              <div className="update-item"> 
               <input type="text" placeholder="$......" onChange={(event)=>{setNewWage(event.target.value)}}></input>
               <button onClick={()=>{updateEmployeeWage(value.id)}}>UPDATE WAGE</button> 
+              </div>
+
+              <div className="update-item">
+              <input type="number" onChange={(event)=>{setNewAge(event.target.value)}}></input>
+              <button onClick={()=>{updateEmployeeAge(value.id)}}>UPDATE AGE</button> 
+              </div>
+
+              <div className="update-item">
+              <input type="text" onChange={(event)=>{setNewPosition(event.target.value)}}></input>
+              <button onClick={()=>{updateEmployeePosition(value.id)}}>UPDATE POSITION</button> 
+              </div>
+
             </div>
             <button className="delete" onClick={()=> {deleteEmployee(value.id)}}>DELETE EMPLOYEE</button>
           </ul>
