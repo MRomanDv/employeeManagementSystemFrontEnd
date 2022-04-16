@@ -37,7 +37,7 @@ function App() {
  }
 
  const getEmployees = ()=>{
-   Axios.get('http://localhost:3001/employees').then((response)=> {
+   Axios.get('https://employeemanagementsystembe.herokuapp.com//employees').then((response)=> {
      setEmployeeList(response.data)
    })
  }
@@ -46,7 +46,7 @@ function App() {
  }
 
  const updateEmployeeWage = (id)=>{
-   Axios.put(`http://localhost:3001/update/${id}`, {
+   Axios.put(`https://employeemanagementsystembe.herokuapp.com/update/${id}`, {
      wage: newWage,
      id:id
    }).then(res => {
@@ -56,7 +56,7 @@ function App() {
    })
  }
  const updateEmployeeAge = (id)=>{
-   Axios.put(`http://localhost:3001/updateAge/${id}`, {
+   Axios.put(`https://employeemanagementsystembe.herokuapp.com/updateAge/${id}`, {
      age:newAge,
      id:id
    }).then(res => {
@@ -67,7 +67,7 @@ function App() {
  }
 
  const updateEmployeePosition = (id)=>{
-  Axios.put(`http://localhost:3001/updatePosition/${id}`, {
+  Axios.put(`https://employeemanagementsystembe.herokuapp.com/updatePosition/${id}`, {
     position:newPosition,
     id:id
   }).then(res => {
@@ -78,7 +78,7 @@ function App() {
 }
 
  const deleteEmployee = (id)=> {
-   Axios.delete(`http://localhost:3001/delete/${id}`) 
+   Axios.delete(`https://employeemanagementsystembe.herokuapp.com/delete/${id}`) 
    .then(res =>{
      setEmployeeList(employeeList.filter((val)=>{
        return val.id != id 
