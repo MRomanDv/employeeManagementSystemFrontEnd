@@ -37,7 +37,7 @@ function App() {
  }
 
  const getEmployees = ()=>{
-   Axios.get('https://employeemanagementsystembe.herokuapp.com//employees').then((response)=> {
+   Axios.get('https://employeemanagementsystembe.herokuapp.com/employees').then((response)=> {
      setEmployeeList(response.data)
    })
  }
