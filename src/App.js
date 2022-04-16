@@ -31,13 +31,13 @@ function App() {
       age: age,
       country: country,
       position: position,
-      wage: wage
+      wage: wage,
      },])
    })
  }
 
  const getEmployees = ()=>{
-   Axios.get('https://employeemanagementsystembe.herokuapp.com/employees').then((response)=> {
+   Axios.get('http://localhost:3001/employees').then((response)=> {
      setEmployeeList(response.data)
    })
  }
@@ -46,41 +46,39 @@ function App() {
  }
 
  const updateEmployeeWage = (id)=>{
-   Axios.put('https://employeemanagementsystembe.herokuapp.com/update', {
+   Axios.put(`http://localhost:3001/update/${id}`, {
      wage: newWage,
      id:id
    }).then(res => {
-     console.log('updated')
      setEmployeeList(employeeList.map((value)=>{
-       return value.id == id ? {name:value.name,age:value.age,country:value.country,position:value.position,wage:newWage} : value 
+       return value.id == id ? {id:value.id, name:value.name,age:value.age,country:value.country,position:value.position,wage:newWage} : value 
      }))
    })
  }
  const updateEmployeeAge = (id)=>{
-  Axios.put('https://employeemanagementsystembe.herokuapp.com/updateAge', {
-    age:newAge,
-    id:id
-  }).then(res => {
-    console.log('updated')
-    setEmployeeList(employeeList.map((value)=>{
-      return value.id == id ? {name:value.name,age:newAge,country:value.country,position:value.position,wage:value.wage} : value 
-    }))
-  })
-}
-const updateEmployeePosition = (id)=>{
-  Axios.put('https://employeemanagementsystembe.herokuapp.com/updatePosition', {
+   Axios.put(`http://localhost:3001/updateAge/${id}`, {
+     age:newAge,
+     id:id
+   }).then(res => {
+     setEmployeeList(employeeList.map((value)=>{
+      return value.id == id ? {id:value.id, name:value.name,age:newAge,country:value.country,position:value.position,wage:value.wage} : value
+     }))
+   })
+ }
+
+ const updateEmployeePosition = (id)=>{
+  Axios.put(`http://localhost:3001/updatePosition/${id}`, {
     position:newPosition,
     id:id
   }).then(res => {
-    console.log('updated')
     setEmployeeList(employeeList.map((value)=>{
-      return value.id == id ? {name:value.name,age:value.age,country:value.country,position:newPosition,wage:value.wage} : value 
+     return value.id == id ? {id:value.id, name:value.name,age:value.age,country:value.country,position:newPosition,wage:value.wage} : value
     }))
   })
 }
 
  const deleteEmployee = (id)=> {
-   Axios.delete(`https://employeemanagementsystembe.herokuapp.com/delete/${id}`)
+   Axios.delete(`http://localhost:3001/delete/${id}`) 
    .then(res =>{
      setEmployeeList(employeeList.filter((val)=>{
        return val.id != id 
@@ -134,20 +132,17 @@ const updateEmployeePosition = (id)=>{
 
             <div className='update'>
               <div className="update-item"> 
-              <input type="text" placeholder="$......" onChange={(event)=>{setNewWage(event.target.value)}}></input>
+              <input type="text" placeholder="Insert only numbers" onChange={(event)=>{setNewWage(event.target.value)}}></input>
               <button onClick={()=>{updateEmployeeWage(value.id)}}>UPDATE WAGE</button> 
               </div>
-
-              <div className="update-item">
-              <input type="number" onChange={(event)=>{setNewAge(event.target.value)}}></input>
+              <div className="update-item"> 
+              <input type="text" placeholder="insert only numbers" onChange={(event)=>{setNewAge(event.target.value)}}></input>
               <button onClick={()=>{updateEmployeeAge(value.id)}}>UPDATE AGE</button> 
               </div>
-
-              <div className="update-item">
+              <div className="update-item"> 
               <input type="text" onChange={(event)=>{setNewPosition(event.target.value)}}></input>
               <button onClick={()=>{updateEmployeePosition(value.id)}}>UPDATE POSITION</button> 
               </div>
-
             </div>
             <button className="delete" onClick={()=> {deleteEmployee(value.id)}}>DELETE EMPLOYEE</button>
           </ul>
